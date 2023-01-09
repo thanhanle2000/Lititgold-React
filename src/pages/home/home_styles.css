@@ -1,0 +1,241 @@
+.Item{
+        width:80px;
+        flex-direction:column;
+        background: white; 
+        border-radius: 10px;
+        padding: 3px;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+    }
+.img_cate_product{
+    height: 60px;
+    width: 60px;
+    align-items: center;
+    border-radius: 1000px;
+}
+.cateProduct{
+    width: 94px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-items: center;
+    padding: 2px;
+}
+.catefueture{
+    display: flex;
+    flex-direction: row;
+    background-color: #f4f5f6;
+    justify-content: space-evenly;
+    padding: 4px;
+}
+.catetopsearch{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 3px;
+    padding: 3px;
+    font-weight: bold;
+}
+.productItem{
+    display: flex;
+    background-color: white;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    align-content: center;
+    padding-bottom: 105px;
+}
+.row_wrap{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+.text_item{
+    font-size: 12.5px;
+    text-align: center;
+    font-weight: 600;
+}
+.items{
+    background: white; 
+    padding: 3px;
+    border-radius: 6px;
+    flex-direction: column;
+    display: flex;
+    border-color:#CAE9D9;
+    border-right: 0.5px;
+    align-items: stretch;
+    justify-content: center;
+}
+.items_1{
+    display: flex;
+    min-width: 30px;
+    justify-content: space-evenly;
+}
+
+.div_items{
+    margin-bottom: 5px;
+    margin-left: 1px;
+    margin-right: 3px;
+    border-width: 7px;
+    border-radius: 6px;
+    background-color: grey;
+}
+.items_2{
+    width: 175px;
+    display: flex;
+    flex-direction: column;
+}
+.texts{
+    font-size: 12px;
+    line-height: 13.3px;
+    font-weight: bold;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+.row_text{
+    padding-top: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.texts_1{
+    line-height: 20px;
+    font-size: 14px;
+    color: grey;
+    font-weight: 600;
+    font-style: italic;
+    text-decoration-line: line-through;
+    
+}
+.texts_2{
+    line-height: 15px;
+    font-size: 15px;
+    color: red;
+    font-weight: bolder;
+}
+.images_1{
+    width: 182px;
+    border-radius: 8px;
+    padding-bottom: 8px;
+}
+
+.detail_page{
+    background: white;
+    padding: 0px;
+    margin: 0px;
+    line-height: 21.3px;
+}
+
+.detail_page_scroll{
+    margin: 1px;
+    overflow-y: scroll;
+}
+.detail_text_title{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.detail_row{
+    display: flex;
+    flex-direction: row;
+}
+.detail_text1{
+    font-size: 14px;
+}
+.detail_down_price{
+    margin-left: 1px;
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+    padding-left: 2px;
+}
+.detail_price{
+    margin-left: 4px;
+    margin-left: 4px    ;
+    font-size: 16px;
+    font-style: italic;
+    text-decoration-line: line-through;
+    font-weight: bold;
+}
+.detail_pricedrop{
+    margin-left: 4px;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: bold;
+}
+.detail_price_percent{
+    margin-left: 4px;
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+}
+.detail_highlight{
+    margin-left: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.p_details > ul >li > span{
+    font-size: 14px !important;
+}
+.p_details > ul{
+    font-size: 14px !important;
+    line-height: 16.3px !important;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.z_details{
+    line-height: 19.5px;
+}
+.z_details p{
+    margin-top: 0px;
+}
+.z_details strong{
+    font-size: 16px;
+}
+.z_details span{
+    margin-top: 0px;
+}
+.z_details img {
+    width: 230px;
+    height: 230px;
+}
+.carousel  div > ul > li{
+    border-radius: 12px;
+}
+.price_down{
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    height: 25px;
+    width: 42px;
+    display: flex;
+    background-color: red;
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 1px;
+    align-items: center;
+}
+.sheet div div{
+    min-height: 15%;
+}
+.cart{
+    position: relative;
+}
+.icon1{
+    color: white;
+    height: 35px;
+}
+.numberCart{
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    color: red;
+    position: relative;
+}

@@ -1,0 +1,91 @@
+.column_action{
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+}
+.row_action{
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.row_action > button {
+    width: 250px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+.row_price{
+    display: flex;
+    flex-direction: column;
+    line-height: 20.3px;
+}
+.text1{
+    font-size: 14px;
+}
+.text2{
+    font-size: 17px;
+    font-weight: bold;
+    color: red;
+}
+.radio_btn{
+    line-height: 10px;
+}
+.radio_btn p label{
+     padding-left: 6px;
+     font-size: 14px;
+     font-weight: 500;
+     color: black;
+}
+.radio{
+    display: flex;
+    flex-direction: column;
+    margin-left: 17px;
+    padding-bottom: 4px;
+}
+.text_radio{
+    padding-bottom: 4px;
+    font-size: 15px;
+    font-weight: 700;
+}
+.row_radio{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 6px;
+}
+.text_requied{
+    color: red;
+    padding-left: 1px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.row_quanti{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 6px;
+}
+.circle{
+    border-radius: 1000px;
+    background-color: #ECF4F7;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.number_quanti{
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 1000px;
+    background-color: #ECF4F7;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
