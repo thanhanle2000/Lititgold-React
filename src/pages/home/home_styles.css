@@ -1,3 +1,13 @@
+
+.home_index{
+    overflow:hidden ;
+}
+.page{
+    background-color: white;
+}
+.img{
+    width: 40px;
+}
 .Item{
         width:80px;
         flex-direction:column;
@@ -7,12 +17,21 @@
         align-items: center;
         justify-content: space-between;
         display: flex;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 .img_cate_product{
     height: 60px;
     width: 60px;
     align-items: center;
     border-radius: 1000px;
+}
+.title_cate{
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .cateProduct{
     width: 94px;
@@ -25,9 +44,8 @@
 .catefueture{
     display: flex;
     flex-direction: row;
-    background-color: #f4f5f6;
     justify-content: space-evenly;
-    padding: 4px;
+    background-color: #F5F5F5;
 }
 .catetopsearch{
     display: flex;
@@ -54,7 +72,21 @@ flex-wrap: wrap;
 .text_item{
     font-size: 12.5px;
     text-align: center;
-    font-weight: 600;
+    color: black;
+    font-weight: 400;
+    
+}
+.row_tilte{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.line{
+    flex: 1 1 0%;
+    height: 0.5px;
+    background-color: grey;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 .items{
     background: white; 
@@ -89,7 +121,7 @@ flex-wrap: wrap;
 .texts{
     font-size: 12px;
     line-height: 13.3px;
-    font-weight: bold;
+    font-weight: 500;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -126,8 +158,6 @@ flex-wrap: wrap;
 
 .detail_page{
     background: white;
-    padding: 0px;
-    margin: 0px;
     line-height: 21.3px;
 }
 
@@ -228,14 +258,30 @@ flex-wrap: wrap;
 .cart{
     position: relative;
 }
-.icon1{
-    color: white;
-    height: 35px;
-}
 .numberCart{
     top: 0;
     right: 0;
     font-size: 14px;
     color: red;
     position: relative;
+}
+.row_header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 4px;
+    justify-content: space-between;
+}
+.icon_cart{
+    color: white;
+    font-size: 35px;
+    margin-right: 5px;
+}
+.btn_buy{
+    background-color: orange;
+    height: 40px;
+}
+.btn_buy div span{
+    color: black;
+    font-size: 16px;
 }

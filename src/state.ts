@@ -3,7 +3,7 @@ import { atom, selector } from "recoil";
 import { Booking, Cart, Location, Restaurant, TabType } from "./models";
 import { calcCrowFliesDistance } from "./utils/location";
 import sdk from "./utils/sdk";
-import { URL, home_url, product_url, search_url } from "./utils/constants";
+import { URL, home_url, product_url, search_url, cart_url } from "./utils/constants";
 export const loginState = selector({
   key: "login",
   get: () => sdk.login(),
@@ -57,7 +57,34 @@ export const getDataProduct = selector({
   }
 })
 
-
+// sản phẩm đánh giá nhiều nhất
+export const getDataRatingProduct = selector({
+  key: 'getDataRatingProduct',
+  get: async ({ get }) => {
+    const param = {
+      "where": "1=1  and  Product.websiteId= 14 and  Product.active=1"
+      , "sort": "Product.numberRate asc"
+      , "pageSize": 20
+      , "pageIndex": 0
+    };
+    const { data } = await axios.post(URL + product_url + "/GetDataProduct", param);
+    return data;
+  }
+})
+// sản phẩm được mua nhiều nhất
+export const getDataBestSaleProduct = selector({
+  key: 'getDataBestSaleProduct',
+  get: async ({ get }) => {
+    const param = {
+      "where": "1=1  and  Product.websiteId= 14 and  Product.active=1"
+      , "sort": "Product.isBestSeller asc"
+      , "pageSize": 20
+      , "pageIndex": 0
+    };
+    const { data } = await axios.post(URL + product_url + "/GetDataProduct", param);
+    return data;
+  }
+})
 // get id sản phẩm
 export const idProduct = atom({
   key: 'listTodo',
@@ -249,6 +276,62 @@ export const getProperties = selector({
     return data;
   }
 })
+
+// lấy dữ liệu cho giỏ hàng
+export const getDataCart = selector({
+  key: 'getDataCart',
+  get: async ({ get }) => {
+    const param = {
+      "voucherCode": "",
+      "provId": 0,
+      "cityId": 0,
+      "areaId": 0,
+      "lstProds": JSON.parse(localStorage.getItem('cart') || "[]")
+    }
+    const { data } = await axios.post(URL + cart_url + "/GetDataShopCarts?domainName=litigold.vn", param);
+    return data;
+  }
+})
+
+// lấy tỉnh /thành
+export const getTinh = selector({
+  key: "getTinh",
+  get: async ({ get }) => {
+    const { data } = await axios.get(URL + "/api/AddressMobile/GetDataAddress?type=1&idSelect=0");
+    return data;
+  }
+})
+
+// lấy id quận/huyện
+export const idHuyen = atom({
+  key: "idHuyen",
+  default: 0,
+})
+
+// lấy dữ liệu cho quận /huyện
+export const getHuyen = selector({
+  key: "getHuyen",
+  get: async ({ get }) => {
+    const { data } = await axios.get(URL + "/api/AddressMobile/GetDataAddress?type=2&idSelect=" + get(idHuyen));
+    return data;
+  }
+})
+// lấy id phường /xã
+export const idXa = atom({
+  key: "idXa",
+  default: 0,
+})
+
+// lấy dữ liệu cho phường /xã
+export const getXa = selector({
+  key: "getXa",
+  get: async ({ get }) => {
+    const { data } = await axios.get(URL + "/api/AddressMobile/GetDataAddress?type=3&idSelect=" + get(idXa));
+    return data;
+  }
+})
+
+
 export const retryLocationState = atom({
   key: "retryLocation",
   default: 0,

@@ -12,7 +12,11 @@ function CateProduct() {
     return (
         <div>
             <Box flexDirection='column' flexWrap p={1} style={{ background: 'white' }}>
-                <Box style={{ fontSize: 17, color: 'black', fontWeight: 'bold' }}>Danh Mục Nổi Bật </Box>
+                <div className='row_tilte'>
+                    <div className='line' />
+                    <Box className='title_cate'>Danh Mục Nổi Bật </Box>
+                    <div className='line' />
+                </div>
                 <div className='row_wrap'>
                     {data.data.map((e: any) => <div onClick={() => {
                         setId(e.id);

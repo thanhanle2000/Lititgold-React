@@ -10,15 +10,21 @@ import HeaderHome from "./header_home";
 import CateFueture from "./cate_fueture_home";
 import CateProduct from "./cate_product_home";
 import ProductItem from "./product_item";
-
+import './home_styles.css';
+import SliderImage from "./home_widgets/slider";
+import RatingProduct from "./home_widgets/rating_product";
+import BestSaleProduct from "./home_widgets/best_sale_product";
 const HomePage = () => {
   const data = useRecoilValue(getDataProductHome);
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <div className="home_index" >
       <HeaderHome />
-      <Page>
+      <Page className="page">
         <CateFueture />
+        <SliderImage />
         <CateProduct />
+        <RatingProduct />
+        <BestSaleProduct />
         <ProductItem data={data} />
       </Page>
     </div>

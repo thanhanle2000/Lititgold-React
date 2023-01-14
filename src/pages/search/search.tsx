@@ -51,7 +51,7 @@ function SearchPage() {
             <div>
                 <div className='text_title'>Lịch sử tìm kiếm:</div>
                 <div className='top_key'>
-                    {myArray.map((e: any) =>
+                    {myArray.filter((item, index) => index > 4).map((e: any) =>
                         <div>
                             {e === '' ? null :
                                 <div onClick={() => {

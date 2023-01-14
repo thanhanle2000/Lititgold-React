@@ -6,31 +6,46 @@ import { numberWithComma } from '../../../utils/constants';
 import './action_styles.css';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-const SheetActionProperties = (price: any, idProduct: number) => {
+const SheetActionProperties = (price: any) => {
     // khai báo dữ liệu đầu vào từ state
     const data = useRecoilValue(getProperties);
     const [selectedDrink, setSelectedDrink] = useState<String>();
     const [changePrice, setChangePrice] = useState(price.price)
     const [changeValue, setChangeValue] = useState('')
+    // type
+    const [typePro, setTypePro] = useState('');
     const radioHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedDrink(event.target.value);
     };
+    const [id, setId] = useState(0);
     const [numberQuanti, setNumberQuanti] = useState(1);
     const { openSnackbar } = useSnackbar();
 
-    function btnConfirm(id: any, qty: number) {
-        var courses = JSON.parse(localStorage.getItem('course') || "[]")
-        var course = {
-            idPro: id,
-            qty: qty
+    function btnConfirm(id: any, qty: number, price: number, image: string, type: string, name: string) {
+        let courses = JSON.parse(localStorage.getItem('cart') || "[]");
+        let course = {
+            id: id,
+            qty: qty,
+            price: price,
+            image: image,
+            type: type,
+            name: name
         }
-        if (courses != null) {
-            courses.push(course)
+        let checker = false;
+        courses.forEach(element => {
+            if (element.id == course.id) {
+                element.qty = element.qty + course.qty
+                checker = true;
+            }
+        });
+
+        if (!checker) {
+            courses.push(course);
         }
-        console.log(course)
-        if (course.qty !== 0 || course.idPro !== '0') {
-            localStorage.setItem('course', JSON.stringify(courses))
+        if (course.qty !== 0 || course.id !== '0') {
+            localStorage.setItem('cart', JSON.stringify(courses))
         }
+
     }
     return (
         <div className='column_action'>
@@ -54,6 +69,8 @@ const SheetActionProperties = (price: any, idProduct: number) => {
                                                 radioHandler
                                                 setChangePrice(e.priceDrop)
                                                 setChangeValue(e.priceDrop)
+                                                setId(e.id)
+                                                setTypePro(e.name)
                                             }}
                                         />
                                         <label htmlFor="coffee">{e.name}</label>
@@ -84,11 +101,10 @@ const SheetActionProperties = (price: any, idProduct: number) => {
                 </div>
             </div>
             <div className='row_action'>
-                {/* {
+                {
                     data.data.length === 0 ?
-                        <Button onClick={() => {
-                            setIdPro(price.idProduct)
-                            // setIdP(price.idProduct)
+                        <Button className='btn_buy_cart' onClick={() => {
+                            btnConfirm(price.idProduct, numberQuanti, price.price, price.img, typePro, price.name)
                             openSnackbar({
                                 position: 'top',
                                 type: 'success',
@@ -99,8 +115,8 @@ const SheetActionProperties = (price: any, idProduct: number) => {
                                 }
                             });
                         }}>Thêm vào giỏ hàng</Button> :
-                        <Button onClick={() => {
-                            changeValue === '' ? null : setIdPro(id)
+                        <Button className='btn_buy_cart' onClick={() => {
+                            changeValue === '' ? null : btnConfirm(id, numberQuanti, price.price, price.img, typePro, price.name)
                             changeValue === '' ? null : openSnackbar({
                                 position: 'top',
                                 type: 'success',
@@ -111,24 +127,10 @@ const SheetActionProperties = (price: any, idProduct: number) => {
                                 }
                             });
                         }}> {changeValue === '' ? 'Chọn thuộc tính' : 'Thêm vào giỏ hàng'}</Button>
-                } */}
-                <Button onClick={() => {
-                    btnConfirm(price.idProduct, price.idProduct)
-                    // setIdPro(price.idProduct)
-                    // setIdP(price.idProduct)
-                    openSnackbar({
-                        position: 'top',
-                        type: 'success',
-                        text: "Thêm sản phẩm vào giỏ hàng thành công",
-                        action: {
-                            text: "Đóng",
-                            close: true
-                        }
-                    });
-                }}>Thêm vào giỏ hàng</Button>
+                }
+
                 <div className='row_price'>
                     <div className='text1'>Giá tiền:</div>
-                    {/* <div>{parsedArray.map((e: any) => <div>{e}</div>)}</div> */}
                     <div className='text2'>{numberWithComma(changePrice * numberQuanti ?? price.price * numberQuanti)}đ</div>
                 </div>
             </div>

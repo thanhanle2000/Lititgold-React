@@ -1,0 +1,62 @@
+.column_page{
+    display: flex;
+    flex-direction: column;
+    margin-left: 7px;
+    margin-right: 7px;
+    margin-top: 5px;
+}
+.text_form div div{
+    height: 35px;
+}
+.column_text_form{
+    display: flex;
+    flex-direction: column;
+}
+.column_text_form input {
+    border-radius: 6px;
+    border-width: 1.5px;
+    padding: 1px;
+    width: 130px;
+}
+.label{
+    font-size: 16px;
+    color: grey;
+    font-weight: 400;
+}
+.form{
+    margin-top: 20px;
+}
+.form input{
+    height: 40px;
+}
+.row_form{
+    display: flex;
+    flex-direction: row;
+}
+.column_form{
+    display: flex;
+    flex-direction: column;
+    line-height: 28px;
+}
+.text_form {
+    font-size: 18px;
+    font-weight: 500;
+}
+.dropdown_item{
+    margin-right: 4px;
+    margin-left: 0px;
+    margin-top: 4px;
+}
+.dropdown_item button{
+    background-color:white;
+    width: 100%;
+    height: 40px;
+    border-color: grey;
+}
+.btn_buy_cart{
+    background-color: orange;
+}
+.btn_buy_cart div span {
+    font-size: 16px;
+    color: black;
+}

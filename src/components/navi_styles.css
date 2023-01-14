@@ -1,0 +1,14 @@
+.cart_number{
+    font-size: 11px;
+    color: white;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    height: 15px;
+    width: 15px;
+    display: flex;
+    background-color: red;
+    border-radius: 1000px;
+    font-weight: 500;
+    justify-content: center;
+}

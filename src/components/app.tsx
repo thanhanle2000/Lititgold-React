@@ -20,6 +20,9 @@ import ItemSearch from "../pages/search/item_search";
 import SufaceSale from "../pages/suface/suface_sale";
 import SufaceNew from "../pages/suface/suface_new";
 import SufaceHot from "../pages/suface/suface_hot";
+import CartPage from "../pages/cart/cart";
+import ConFirmAddress from "../pages/address/confirm_address";
+import ConfirmCart from "../pages/confirm_cart/confirm_cart";
 
 const MyApp = () => {
   return (
@@ -34,11 +37,9 @@ const MyApp = () => {
           <Suspense>
             <SnackbarProvider>
               <ZMPRouter>
-                <Cart />
                 <Header />
                 <AnimationRoutes>
                   <Route path="/" element={<HomePage />} />
-                  <Route path="/restaurant" element={<RestaurantPage />}></Route>
                   <Route path="/suface" element={<CalendarPage />}></Route>
                   <Route path="/cate" element={<CatePage />}></Route>
                   <Route path="/account" element={<AccountPage />}></Route>
@@ -49,6 +50,9 @@ const MyApp = () => {
                   <Route path="/suface_sale" element={<SufaceSale />}></Route>
                   <Route path="/suface_hot" element={<SufaceHot />}></Route>
                   <Route path="/suface_new" element={<SufaceNew />}></Route>
+                  <Route path="/cart" element={<CartPage />}></Route>
+                  <Route path="/confirm_address" element={<ConFirmAddress />}></Route>
+                  <Route path="/confirm_cart" element={<ConfirmCart />}></Route>
                 </AnimationRoutes>
                 <NavigationBar />
               </ZMPRouter>

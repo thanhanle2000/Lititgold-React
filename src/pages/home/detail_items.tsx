@@ -21,6 +21,7 @@ const Details = () => {
         console.log('lightGallery has been initialized');
     };
     let check = false;
+    const numberDown = Math.round(100 - (data.data.priceDrop / data.data.price) * 100);
     return (
         <Page className='detail_page' >
             <Box className='detail_page_scroll' >
@@ -55,7 +56,11 @@ const Details = () => {
                             </div>
                         </div>)}
                     </Carousel>
-                    <Box className='price_down' >-{Math.round(100 - (data.data.priceDrop / data.data.price) * 100)}%</Box>
+                    <div>
+                        {
+                            numberDown == 0 ? null : <Box className='price_down' >-{numberDown}%</Box>
+                        }
+                    </div>
                 </Box>
 
                 <Box className='detail_text_title'>
@@ -104,7 +109,7 @@ const Details = () => {
                     {parse(data.data.description)}
                 </div>
             </Box>
-            <ButtonBuy price={data.data.priceDrop} onClick={setID(data.data.id)} id={data.data.id} />
+            <ButtonBuy price={data.data.priceDrop} onClick={setID(data.data.id)} id={data.data.id} img={data.data.images} name={data.data.name} />
         </Page >
     );
 }

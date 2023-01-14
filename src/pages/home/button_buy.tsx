@@ -3,7 +3,6 @@ import { Box, Button, Sheet } from 'zmp-ui';
 import cx from '../../utils/cx';
 import SheetActionProperties from './home_widgets/sheet_action_properties';
 import './home_styles.css';
-import AddIcon from '@mui/icons-material/Add';
 
 const ButtonBuy = (price: any) => {
     const [sheetVisible, setSheetVisible] = useState(false);
@@ -17,7 +16,7 @@ const ButtonBuy = (price: any) => {
             )}
         >
             <Box m={0} flex className="gap-3">
-                <Button fullWidth size="small" onClick={() => {
+                <Button className='btn_buy' fullWidth size="small" onClick={() => {
                     setSheetVisible(true);
                 }} >
                     Chọn mua
@@ -27,7 +26,7 @@ const ButtonBuy = (price: any) => {
                 visible={sheetVisible}
                 onClose={() => setSheetVisible(false)}
             >
-                <SheetActionProperties price={price.price} idProduct={price.id} />
+                <SheetActionProperties price={price.price} idProduct={price.id} img={price.img} name={price.name} />
             </Sheet>
         </Box>
     );
