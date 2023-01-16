@@ -14,10 +14,12 @@ const MiniItems = (data: any) => {
                 navigate(`/detail_items`);
             }} className='item'>
                 <img className='img_item' loading="lazy" src={URL + '/uploads/img/14/products/large/' + e.images} />
-                <div className='text_item_1'>{e.name}</div>
-                <div className='row_item'>
-                    <div className='price'>{numberWithComma(e.priceDrop)}đ</div>
-                    <div className='priceDrop'>{numberWithComma(e.price)}đ</div>
+                <div className='column_item_1'>
+                    <div className='text_item_1'>{e.name}</div>
+                    <div className='row_item'>
+                        <div className='price'>{numberWithComma(e.priceDrop)}đ</div>
+                        <div className='priceDrop'>{numberWithComma(e.price)}đ</div>
+                    </div>
                 </div>
             </div>
         )}</>

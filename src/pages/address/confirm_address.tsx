@@ -4,7 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { Box, Button, Input, Page, useNavigate } from 'zmp-ui';
 import { getHuyen, getTinh, getXa, idHuyen, idXa } from '../../state';
 import cx from '../../utils/cx';
-import { idAddress } from '../cart/state_cart/state_cart';
+import { getInfoUserCart, idAddress } from '../cart/state_cart/state_cart';
 import HandleConfirmCart from '../handle_confirm/handle_confim_cart';
 import './confim_address_styles.css';
 
@@ -13,17 +13,12 @@ function ConFirmAddress() {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [address, setAddress] = useState('');
-
     //title
     const [titleTinh, setTitleTinh] = useState('Chọn tỉnh/thành');
     const [titleHuyen, setTitleHuyen] = useState('Chọn quận/huyện');
     const [titleXa, setTitleXa] = useState('Chọn phường/xã');
-
     const handleSubmit = (event) => {
         event.preventDefault();
-
-
-        console.log(name);
     }
     // lấy data tỉnh /thành
     const tinhThanh = useRecoilValue(getTinh);
@@ -35,8 +30,10 @@ function ConFirmAddress() {
     // lấy dữ liệu cho phường /xã
     const phuongXa = useRecoilValue(getXa);
     const [idPhuongXa, setIdPhuongXa] = useState(0);
+    // address
     const [id, setId] = useRecoilState(idAddress);
-    console.log(id)
+    // infocart
+    const [info, setInfo] = useRecoilState(getInfoUserCart);
     useEffect(() => {
         setTitleHuyen('Chọn quận/huyện');
         setTitleXa('Chọn phường/xã');
@@ -119,11 +116,11 @@ function ConFirmAddress() {
                     'bg-white fixed bottom-0 left-0 right-0 shadow-btn-fixed',
                     'z-[99999]',
                 )}>
-
                 <Box m={0} mb={2} mt={2} flex className="gap-3">
                     <Button className='btn_buy_cart' fullWidth size="large" onClick={() => {
                         navigate('/confirm_cart')
-                        setId({ address: { idPro: idTinh, idDis: idxa, idWard: idPhuongXa } })
+                        setId({ address: { idPro: idTinh, idDis: idxa, idWard: idPhuongXa } });
+                        setInfo({ infoCart: { surname: surname, name: name, address: address } });
                     }} >
                         Tiếp tục
                     </Button>
